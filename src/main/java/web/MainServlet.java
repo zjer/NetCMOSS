@@ -45,12 +45,29 @@ public class MainServlet extends HttpServlet {
             toIndex(req, resp);
         } else if ("/login.do".equals(path)) {
             login(req, resp);
+        } else if ("/logout.do".equals(path)) {
+            logout(req, resp);
         } else if ("/createImg.do".equals(path)) {
             createImg(req, resp);
         } else {
             //抛异常，由tomcat统一处理
             throw new RuntimeException("查无此页");
         }
+    }
+
+    /**
+     * 退出登录
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        //
+        HttpSession session = req.getSession();
+        session.invalidate();
+        resp.sendRedirect("toLogin.do");
     }
 
     /**

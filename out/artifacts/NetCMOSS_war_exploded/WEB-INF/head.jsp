@@ -11,5 +11,5 @@
     <%--EL表达式的默认取值范围是：
         page、request、session、application依次取值；
         EL表达式也可以从cookie取值--%>
-    <span>${adminCode}</span><a href="#">[退出]</a>
+    <span>${adminCode}</span><a href="javascript:void (0);" onclick="location.href='logout.do';">[退出]</a>
 </div>
